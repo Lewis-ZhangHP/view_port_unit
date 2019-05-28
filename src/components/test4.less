@@ -1,0 +1,40 @@
+:root {
+  --ratio: 9/16;
+  --width: 98vmin;
+  --height: calc(var(--width)*var(--ratio));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slide {
+  background: #FFF;
+  border: 1px solid;
+  font-size: 3.5vmin;
+  margin: 1vmin auto;
+  padding: 3vmin;
+  width: var(--width);
+  height: var(--height);
+  text-align: center;
+
+  h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  h1, p {
+    margin-bottom: 3vmin;
+  }
+
+  img {
+    display: block;
+    margin: 3vmin auto;
+    width: 15vmin;
+  }
+
+  .bigred {
+    color: red;
+    font-size: 3em;
+  }
+}

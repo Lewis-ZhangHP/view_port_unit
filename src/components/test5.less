@@ -1,0 +1,34 @@
+
+html,body {
+  marign: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  height: 125px;
+  width: 100%;
+  background: white;
+}
+
+main {
+  margin-top: 128px;
+}
+
+@supports(height: 100vh) {
+  body {
+    background: linear-gradient(to right top, #0089f2 50%, #DDD 50%);
+    background-size: 100% calc(100% - 100vh + 129px);
+    background-repeat: no-repeat;
+  }
+
+  body:before {
+    content: '';
+    position: fixed;
+    top: 128px;
+    bottom: 0px;
+    width: 100%;
+    z-index: -1;
+    background-color: white;
+  }
+}

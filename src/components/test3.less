@@ -1,0 +1,48 @@
+
+.test-3 {
+  height: 100vh;
+}
+
+.test-3 {
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 'header header' 'nav main' 'footer footer';
+}
+
+body {
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, footer {
+  background: lightgray;
+}
+
+h1 {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}
+
+nav {
+  grid-area: nav;
+}
+
+article {
+  grid-area: main;
+}
+
+nav, article {
+  overflow-y: auto;
+}
+
+h1, nav, article, footer {
+  padding: 1rem;
+}
