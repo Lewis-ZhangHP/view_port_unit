@@ -25,6 +25,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -72,8 +73,8 @@ module.exports = function(webpackEnv) {
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
-      isEnvDevelopment && require.resolve('style-loader'),
-      isEnvProduction && {
+      true && require.resolve('style-loader'),
+      false && {
         loader: MiniCssExtractPlugin.loader,
         options: shouldUseRelativeAssetPaths ? { publicPath: '../../' } : {},
       },
@@ -232,7 +233,7 @@ module.exports = function(webpackEnv) {
               ? {
                   // `inline: false` forces the sourcemap to be output into a
                   // separate file
-                  inline: false,
+                  inline: true,
                   // `annotation: true` appends the sourceMappingURL to the end of
                   // the css file, helping the browser find the sourcemap
                   annotation: true,
@@ -487,6 +488,7 @@ module.exports = function(webpackEnv) {
           {
             inject: true,
             template: paths.appHtml,
+            inlineSource: '.(js|css)$'
           },
           isEnvProduction
             ? {
@@ -510,7 +512,7 @@ module.exports = function(webpackEnv) {
       // a network request.
       isEnvProduction &&
         shouldInlineRuntimeChunk &&
-        new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+        new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/\.(js|css)/]),
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
       // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

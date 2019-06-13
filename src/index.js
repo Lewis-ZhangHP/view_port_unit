@@ -1,12 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const BASE_URL = 'https://go.tradeshiftchina.cn';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function getPath() {
+    const location = window.location;
+    return (location.pathname + location.search + location.hash);
+}
+
+function getNewUrl () {
+    return (BASE_URL + getPath());
+}
+
+function updateHrefDom() {
+    const ele = document.querySelector('.new-link');
+    ele.href = getNewUrl();
+    ele.textContent = getNewUrl();
+}
+
+updateHrefDom();
