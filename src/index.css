@@ -1,6 +1,6 @@
 
 body {
-  background-color: #141C1F;
+  background-color: hsl(204, 22%, 95%);;
   margin: 0px;
 }
 
@@ -17,9 +17,10 @@ body {
   margin: auto;
   font-size: 14px;
   text-align: center;
-  color: white;
   width: 50%;
   word-break: break-all;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Lucida Grande', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+
 }
 
 .logo svg {
@@ -34,4 +35,5 @@ body {
 .new-link {
   margin-top: 20px;
   color: #00AEFF;
+  text-decoration: none;
 }
