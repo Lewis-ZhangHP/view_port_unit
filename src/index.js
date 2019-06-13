@@ -15,7 +15,6 @@ function getNewUrl () {
 function updateHrefDom() {
     const ele = document.querySelector('.new-link');
     ele.href = getNewUrl();
-    ele.textContent = getNewUrl();
 }
 
 updateHrefDom();
